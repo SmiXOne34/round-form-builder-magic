@@ -84,70 +84,94 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Nationality */}
-                <div>
-                  <Label className="text-sm font-medium text-foreground mb-2 block">
-                    Nationalité / <span className="text-muted-foreground" dir="rtl">الجنسية</span>
-                  </Label>
-                  <Input className="h-11" />
-                </div>
-
-                {/* Birth date */}
-                <div>
-                  <Label className="text-sm font-medium text-foreground mb-2 block">
-                    Date de naissance / <span className="text-muted-foreground" dir="rtl">تاريخ الازدياد</span>
-                  </Label>
-                  <Input type="date" className="h-11" />
+                {/* Nationality, Country of residence, Birth date in one row */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Nationalité / <span className="text-muted-foreground" dir="rtl">الجنسية</span>
+                    </Label>
+                    <Input className="h-11" />
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Pays de résidence / <span className="text-muted-foreground" dir="rtl">بلد الإقامة</span>
+                    </Label>
+                    <Input className="h-11" />
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Date de naissance / <span className="text-muted-foreground" dir="rtl">تاريخ الازدياد</span>
+                    </Label>
+                    <Input type="date" className="h-11" />
+                  </div>
                 </div>
               </div>
 
-              {/* Right Column */}
+               {/* Right Column */}
               <div className="space-y-5">
-                {/* Country of residence */}
-                <div>
-                  <Label className="text-sm font-medium text-foreground mb-2 block">
-                    Pays de résidence / <span className="text-muted-foreground" dir="rtl">بلد الإقامة</span>
-                  </Label>
-                  <Input className="h-11" />
+                {/* Number of children and adults in one row */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Nombre d'enfants-18 ans / <span className="text-muted-foreground" dir="rtl">عدد الأطفال دون سن 18 سنة</span>
+                    </Label>
+                    <Input type="number" className="h-11" />
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Nombre d'adultes / <span className="text-muted-foreground" dir="rtl">عدد البالغين</span>
+                    </Label>
+                    <Input type="number" className="h-11" />
+                  </div>
                 </div>
 
-                {/* Number of children */}
-                <div>
-                  <Label className="text-sm font-medium text-foreground mb-2 block">
-                    Nombre d'enfants-18 ans / <span className="text-muted-foreground" dir="rtl">عدد الأطفال دون سن 18 سنة</span>
-                  </Label>
-                  <Input type="number" className="h-11" />
+                {/* Arrival date and Autres in one row */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Date d'arrivée / <span className="text-muted-foreground" dir="rtl">تاريخ الوصول</span>
+                    </Label>
+                    <Input type="date" className="h-11" />
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-3 block">
+                      Autres (N° d'Admission, ...) / <span className="text-muted-foreground" dir="rtl">وثائق أخرى</span>
+                    </Label>
+                    <Input className="h-11" placeholder="N° d'Admission..." />
+                  </div>
                 </div>
 
-                {/* Arrival date */}
-                <div>
-                  <Label className="text-sm font-medium text-foreground mb-2 block">
-                    Date d'arrivée / <span className="text-muted-foreground" dir="rtl">تاريخ الوصول</span>
-                  </Label>
-                  <Input type="date" className="h-11" />
-                </div>
-
-                {/* Identity document */}
-                <div>
-                  <Label className="text-sm font-medium text-foreground mb-3 block">
-                    Pièce d'identité présentée / <span className="text-muted-foreground" dir="rtl">وثيقة الهوية المقدمة</span>
-                  </Label>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
-                      <Checkbox id="cnie" />
-                      <Label htmlFor="cnie" className="text-sm cursor-pointer">CNIE</Label>
+                {/* Identity document and Document number in one row */}
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label className="text-sm font-medium text-foreground mb-3 block">
+                        Pièce d'identité présentée / <span className="text-muted-foreground" dir="rtl">وثيقة الهوية المقدمة</span>
+                      </Label>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
+                          <Checkbox id="cnie" />
+                          <Label htmlFor="cnie" className="text-xs cursor-pointer">CNIE</Label>
+                        </div>
+                        <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
+                          <Checkbox id="passport" />
+                          <Label htmlFor="passport" className="text-xs cursor-pointer">Passeport</Label>
+                        </div>
+                        <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
+                          <Checkbox id="birth-cert" />
+                          <Label htmlFor="birth-cert" className="text-xs cursor-pointer" dir="rtl">شهادة ميلاد</Label>
+                        </div>
+                        <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
+                          <Checkbox id="passport-ar" />
+                          <Label htmlFor="passport-ar" className="text-xs cursor-pointer" dir="rtl">جواز السفر</Label>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
-                      <Checkbox id="passport" />
-                      <Label htmlFor="passport" className="text-sm cursor-pointer">Passeport</Label>
-                    </div>
-                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
-                      <Checkbox id="birth-cert" />
-                      <Label htmlFor="birth-cert" className="text-sm cursor-pointer" dir="rtl">شهادة ميلاد</Label>
-                    </div>
-                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
-                      <Checkbox id="passport-ar" />
-                      <Label htmlFor="passport-ar" className="text-sm cursor-pointer" dir="rtl">جواز السفر</Label>
+                    <div>
+                      <Label className="text-sm font-medium text-foreground mb-2 block">
+                        N° de la pièce d'identité présentée / <span className="text-muted-foreground" dir="rtl">رقم وثيقة الهوية المقدمة</span>
+                      </Label>
+                      <Input className="h-11" />
                     </div>
                   </div>
                 </div>
@@ -155,30 +179,16 @@ const Index = () => {
             </div>
 
             {/* Full width fields */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+            <div className="grid grid-cols-1 gap-6 mt-6">
               {/* Stay permit */}
               <div>
                 <Label className="text-sm font-medium text-foreground mb-3 block">
-                  Titre de séjour / <span className="text-muted-foreground" dir="rtl">وثائق أخرى (رقم الدخول)</span>
+                  Titre de séjour / <span className="text-muted-foreground" dir="rtl">إسند الإقامة</span>
                 </Label>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/50">
-                    <Checkbox id="autres" />
-                    <Label htmlFor="autres" className="text-sm cursor-pointer">Autres (N° d'Admission, ...)</Label>
-                  </div>
-                  <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/50">
-                    <Checkbox id="residence" />
-                    <Label htmlFor="residence" className="text-sm cursor-pointer" dir="rtl">إسند الإقامة</Label>
-                  </div>
+                <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/50">
+                  <Checkbox id="residence" />
+                  <Label htmlFor="residence" className="text-sm cursor-pointer" dir="rtl">إسند الإقامة</Label>
                 </div>
-              </div>
-
-              {/* Document number */}
-              <div>
-                <Label className="text-sm font-medium text-foreground mb-2 block">
-                  N° de la pièce d'identité présentée / <span className="text-muted-foreground" dir="rtl">رقم وثيقة الهوية المقدمة</span>
-                </Label>
-                <Input className="h-11" />
               </div>
             </div>
           </div>
