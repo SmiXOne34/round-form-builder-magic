@@ -148,22 +148,18 @@ const Index = () => {
                       <Label className="text-sm font-medium text-foreground mb-3 block">
                         Pièce d'identité présentée / <span className="text-muted-foreground" dir="rtl">وثيقة الهوية المقدمة</span>
                       </Label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="space-y-2">
                         <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
-                          <Checkbox id="cnie" />
-                          <Label htmlFor="cnie" className="text-xs cursor-pointer">CNIE</Label>
+                          <input type="radio" id="cnie" name="identity-doc" className="text-primary" />
+                          <Label htmlFor="cnie" className="text-xs cursor-pointer">CNIE / بطاقة الوطنية</Label>
                         </div>
                         <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
-                          <Checkbox id="passport" />
-                          <Label htmlFor="passport" className="text-xs cursor-pointer">Passeport</Label>
+                          <input type="radio" id="passport" name="identity-doc" className="text-primary" />
+                          <Label htmlFor="passport" className="text-xs cursor-pointer">Passeport / جواز السفر</Label>
                         </div>
                         <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
-                          <Checkbox id="birth-cert" />
-                          <Label htmlFor="birth-cert" className="text-xs cursor-pointer" dir="rtl">شهادة ميلاد</Label>
-                        </div>
-                        <div className="flex items-center space-x-2 p-2 border rounded-lg hover:bg-accent/50">
-                          <Checkbox id="passport-ar" />
-                          <Label htmlFor="passport-ar" className="text-xs cursor-pointer" dir="rtl">جواز السفر</Label>
+                          <input type="radio" id="driving-license" name="identity-doc" className="text-primary" />
+                          <Label htmlFor="driving-license" className="text-xs cursor-pointer">Permis de conduit / رخصة سياقة</Label>
                         </div>
                       </div>
                     </div>
