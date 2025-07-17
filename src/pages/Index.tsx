@@ -5,253 +5,247 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
+import { Building2 } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-          <div className="flex justify-between items-start">
-            <div className="text-sm text-gray-600">
+    <div className="min-h-screen bg-background p-6">
+      <div className="max-w-5xl mx-auto">
+        {/* Modern Header */}
+        <Card className="p-6 mb-6 border-0 shadow-lg">
+          <div className="flex items-center justify-between mb-4">
+            <div className="text-sm text-muted-foreground space-y-1">
               <p>04, Rue Zinata, résidence Misk lili, N°8 RDC. Tanger</p>
               <p>Tél.: 06 61 48 29 88 - Email: contact@immo-tanger.com</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-2">
-                <div className="text-white font-bold text-xs">JI</div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <Building2 className="w-6 h-6 text-primary-foreground" />
               </div>
-              <div className="text-xs text-gray-600">
-                <p>Jussy Invest</p>
-                <p>Agence immobilière</p>
+              <div className="text-right">
+                <p className="font-semibold text-foreground">Jussy Invest</p>
+                <p className="text-sm text-muted-foreground">Agence immobilière</p>
               </div>
             </div>
           </div>
           
-          <div className="text-center mt-4">
-            <div className="bg-gray-300 px-6 py-2 rounded-lg inline-block">
-              <h1 className="text-lg font-semibold">Bulletin individuel d'hébergement</h1>
-              <h1 className="text-lg font-semibold text-right" dir="rtl">الاستمارة الفردية للإيواء</h1>
+          <div className="text-center">
+            <div className="bg-primary/10 px-6 py-3 rounded-xl inline-block">
+              <h1 className="text-xl font-bold text-primary">Bulletin individuel d'hébergement</h1>
+              <h1 className="text-lg font-semibold text-primary" dir="rtl">الاستمارة الفردية للإيواء</h1>
             </div>
           </div>
-        </div>
+        </Card>
 
         {/* Main Form */}
-        <Card className="p-6">
+        <Card className="p-8 border-0 shadow-lg">
           {/* Mandatory Information Section */}
           <div className="mb-8">
-            <div className="bg-gray-300 px-4 py-2 rounded-lg mb-6">
-              <h2 className="text-lg font-semibold flex justify-between">
+            <div className="bg-primary/5 px-6 py-3 rounded-xl mb-6 border-l-4 border-primary">
+              <h2 className="text-lg font-bold flex justify-between text-primary">
                 <span>Informations obligatoire</span>
                 <span dir="rtl">معلومات إلزامية</span>
               </h2>
             </div>
 
-            <div className="space-y-6">
-              {/* Name fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Left Column */}
+              <div className="space-y-5">
+                {/* Name fields */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Nom / <span className="text-muted-foreground" dir="rtl">الاسم العائلي</span>
+                    </Label>
+                    <Input className="h-11" />
+                  </div>
+                  <div>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Prénom / <span className="text-muted-foreground" dir="rtl">الاسم الشخصي</span>
+                    </Label>
+                    <Input className="h-11" />
+                  </div>
+                </div>
+
+                {/* Gender */}
                 <div>
-                  <Label className="flex justify-between text-sm mb-2">
-                    <span>Nom</span>
-                    <span dir="rtl">الاسم العائلي</span>
+                  <Label className="text-sm font-medium text-foreground mb-3 block">
+                    Sexe / <span className="text-muted-foreground" dir="rtl">الجنس</span>
                   </Label>
-                  <Input className="rounded-lg border-gray-300" />
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/50">
+                      <Checkbox id="homme" />
+                      <Label htmlFor="homme" className="text-sm cursor-pointer">Homme / <span dir="rtl">ذكر</span></Label>
+                    </div>
+                    <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/50">
+                      <Checkbox id="femme" />
+                      <Label htmlFor="femme" className="text-sm cursor-pointer">Femme / <span dir="rtl">أنثى</span></Label>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Nationality */}
                 <div>
-                  <Label className="flex justify-between text-sm mb-2">
-                    <span>Prénom</span>
-                    <span dir="rtl">الاسم الشخصي</span>
+                  <Label className="text-sm font-medium text-foreground mb-2 block">
+                    Nationalité / <span className="text-muted-foreground" dir="rtl">الجنسية</span>
                   </Label>
-                  <Input className="rounded-lg border-gray-300" />
+                  <Input className="h-11" />
+                </div>
+
+                {/* Birth date */}
+                <div>
+                  <Label className="text-sm font-medium text-foreground mb-2 block">
+                    Date de naissance / <span className="text-muted-foreground" dir="rtl">تاريخ الازدياد</span>
+                  </Label>
+                  <Input type="date" className="h-11" />
                 </div>
               </div>
 
-              {/* Gender */}
-              <div>
-                <Label className="flex justify-between text-sm mb-3">
-                  <span>Sexe</span>
-                  <span dir="rtl">الجنس</span>
-                </Label>
-                <div className="flex gap-8">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="homme" />
-                    <Label htmlFor="homme" className="text-sm">Homme</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="femme" />
-                    <Label htmlFor="femme" className="text-sm">Femme</Label>
-                  </div>
-                  <div className="flex items-center space-x-2 mr-auto">
-                    <Checkbox id="male" />
-                    <Label htmlFor="male" className="text-sm" dir="rtl">ذكر</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="female" />
-                    <Label htmlFor="female" className="text-sm" dir="rtl">أنثى</Label>
+              {/* Right Column */}
+              <div className="space-y-5">
+                {/* Country of residence */}
+                <div>
+                  <Label className="text-sm font-medium text-foreground mb-2 block">
+                    Pays de résidence / <span className="text-muted-foreground" dir="rtl">بلد الإقامة</span>
+                  </Label>
+                  <Input className="h-11" />
+                </div>
+
+                {/* Number of children */}
+                <div>
+                  <Label className="text-sm font-medium text-foreground mb-2 block">
+                    Nombre d'enfants-18 ans / <span className="text-muted-foreground" dir="rtl">عدد الأطفال دون سن 18 سنة</span>
+                  </Label>
+                  <Input type="number" className="h-11" />
+                </div>
+
+                {/* Arrival date */}
+                <div>
+                  <Label className="text-sm font-medium text-foreground mb-2 block">
+                    Date d'arrivée / <span className="text-muted-foreground" dir="rtl">تاريخ الوصول</span>
+                  </Label>
+                  <Input type="date" className="h-11" />
+                </div>
+
+                {/* Identity document */}
+                <div>
+                  <Label className="text-sm font-medium text-foreground mb-3 block">
+                    Pièce d'identité présentée / <span className="text-muted-foreground" dir="rtl">وثيقة الهوية المقدمة</span>
+                  </Label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
+                      <Checkbox id="cnie" />
+                      <Label htmlFor="cnie" className="text-sm cursor-pointer">CNIE</Label>
+                    </div>
+                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
+                      <Checkbox id="passport" />
+                      <Label htmlFor="passport" className="text-sm cursor-pointer">Passeport</Label>
+                    </div>
+                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
+                      <Checkbox id="birth-cert" />
+                      <Label htmlFor="birth-cert" className="text-sm cursor-pointer" dir="rtl">شهادة ميلاد</Label>
+                    </div>
+                    <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50">
+                      <Checkbox id="passport-ar" />
+                      <Label htmlFor="passport-ar" className="text-sm cursor-pointer" dir="rtl">جواز السفر</Label>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Nationality */}
-              <div>
-                <Label className="flex justify-between text-sm mb-2">
-                  <span>Nationalité</span>
-                  <span dir="rtl">الجنسية</span>
-                </Label>
-                <Input className="rounded-lg border-gray-300" />
-              </div>
-
-              {/* Birth date */}
-              <div>
-                <Label className="flex justify-between text-sm mb-2">
-                  <span>Date de naissance</span>
-                  <span dir="rtl">تاريخ الازدياد</span>
-                </Label>
-                <Input type="date" className="rounded-lg border-gray-300" />
-              </div>
-
-              {/* Country of residence */}
-              <div>
-                <Label className="flex justify-between text-sm mb-2">
-                  <span>Pays de résidence</span>
-                  <span dir="rtl">بلد الإقامة</span>
-                </Label>
-                <Input className="rounded-lg border-gray-300" />
-              </div>
-
-              {/* Number of children */}
-              <div>
-                <Label className="flex justify-between text-sm mb-2">
-                  <span>Nombre d'enfants-18 ans</span>
-                  <span dir="rtl">عدد الأطفال دون سن 18 سنة</span>
-                </Label>
-                <Input type="number" className="rounded-lg border-gray-300" />
-              </div>
-
-              {/* Arrival date */}
-              <div>
-                <Label className="flex justify-between text-sm mb-2">
-                  <span>Date d'arrivée</span>
-                  <span dir="rtl">تاريخ الوصول</span>
-                </Label>
-                <Input type="date" className="rounded-lg border-gray-300" />
-              </div>
-
-              {/* Identity document */}
-              <div>
-                <Label className="flex justify-between text-sm mb-3">
-                  <span>Pièce d'identité présentée</span>
-                  <span dir="rtl">وثيقة الهوية المقدمة</span>
-                </Label>
-                <div className="flex gap-8 flex-wrap">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="cnie" />
-                    <Label htmlFor="cnie" className="text-sm">CNIE</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="passport" />
-                    <Label htmlFor="passport" className="text-sm">Passeport</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="birth-cert" />
-                    <Label htmlFor="birth-cert" className="text-sm" dir="rtl">شهادة ميلاد</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="passport-ar" />
-                    <Label htmlFor="passport-ar" className="text-sm" dir="rtl">جواز السفر</Label>
-                  </div>
-                </div>
-              </div>
-
+            {/* Full width fields */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
               {/* Stay permit */}
               <div>
-                <Label className="flex justify-between text-sm mb-3">
-                  <span>Titre de séjour</span>
-                  <span dir="rtl">وثائق أخرى (رقم الدخول)</span>
+                <Label className="text-sm font-medium text-foreground mb-3 block">
+                  Titre de séjour / <span className="text-muted-foreground" dir="rtl">وثائق أخرى (رقم الدخول)</span>
                 </Label>
-                <div className="flex gap-8 items-center">
-                  <div className="flex items-center space-x-2">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/50">
                     <Checkbox id="autres" />
-                    <Label htmlFor="autres" className="text-sm">Autres (N° d'Admission, ...)</Label>
+                    <Label htmlFor="autres" className="text-sm cursor-pointer">Autres (N° d'Admission, ...)</Label>
                   </div>
-                  <div className="flex items-center space-x-2 mr-auto">
+                  <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/50">
                     <Checkbox id="residence" />
-                    <Label htmlFor="residence" className="text-sm" dir="rtl">إسند الإقامة</Label>
+                    <Label htmlFor="residence" className="text-sm cursor-pointer" dir="rtl">إسند الإقامة</Label>
                   </div>
                 </div>
               </div>
 
               {/* Document number */}
               <div>
-                <Label className="flex justify-between text-sm mb-2">
-                  <span>N° de la pièce d'identité présentée</span>
-                  <span dir="rtl">رقم وثيقة الهوية المقدمة</span>
+                <Label className="text-sm font-medium text-foreground mb-2 block">
+                  N° de la pièce d'identité présentée / <span className="text-muted-foreground" dir="rtl">رقم وثيقة الهوية المقدمة</span>
                 </Label>
-                <Input className="rounded-lg border-gray-300" />
+                <Input className="h-11" />
               </div>
             </div>
           </div>
 
           {/* Accommodation Information Section */}
           <div className="mb-8">
-            <div className="bg-gray-300 px-4 py-2 rounded-lg mb-6">
-              <h2 className="text-lg font-semibold flex justify-between">
+            <div className="bg-primary/5 px-6 py-3 rounded-xl mb-6 border-l-4 border-primary">
+              <h2 className="text-lg font-bold flex justify-between text-primary">
                 <span>Informations sur l'hébergement</span>
                 <span dir="rtl">معلومات عن الإيواء</span>
               </h2>
             </div>
 
-            <div className="space-y-6">
-              {/* Check-in date */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Check-in and checkout dates */}
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label className="flex justify-between text-sm mb-2">
-                    <span>Date d'hébergement</span>
-                    <span dir="rtl">تاريخ الإيواء</span>
+                  <Label className="text-sm font-medium text-foreground mb-2 block">
+                    Date d'hébergement / <span className="text-muted-foreground" dir="rtl">تاريخ الإيواء</span>
                   </Label>
-                  <Input type="date" className="rounded-lg border-gray-300" />
+                  <Input type="date" className="h-11" />
                 </div>
                 <div>
-                  <Label className="flex justify-between text-sm mb-2">
-                    <span>Date de départ prévisionnelle</span>
-                    <span dir="rtl">تاريخ المغادرة المقدر</span>
+                  <Label className="text-sm font-medium text-foreground mb-2 block">
+                    Date de départ / <span className="text-muted-foreground" dir="rtl">تاريخ المغادرة المقدر</span>
                   </Label>
-                  <Input type="date" className="rounded-lg border-gray-300" />
+                  <Input type="date" className="h-11" />
                 </div>
               </div>
 
               {/* Address */}
               <div>
-                <Label className="flex justify-between text-sm mb-2">
-                  <span>Adresse d'appartement / Chambre</span>
-                  <span dir="rtl">عنوان الشقة / الغرفة</span>
+                <Label className="text-sm font-medium text-foreground mb-2 block">
+                  Adresse d'appartement / Chambre / <span className="text-muted-foreground" dir="rtl">عنوان الشقة / الغرفة</span>
                 </Label>
                 <Textarea 
-                  className="rounded-lg border-gray-300 min-h-[100px]" 
+                  className="min-h-[100px]" 
                   placeholder="Entrez l'adresse complète..."
                 />
               </div>
+            </div>
 
-              {/* Signature */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label className="text-sm mb-2 block">Signature du client</Label>
-                  <div className="border border-gray-300 rounded-lg h-32 bg-gray-50"></div>
+            {/* Signature */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+              <div>
+                <Label className="text-sm font-medium text-foreground mb-3 block">Signature du client</Label>
+                <div className="border-2 border-dashed border-muted rounded-xl h-32 bg-muted/20 flex items-center justify-center">
+                  <span className="text-muted-foreground text-sm">Signature zone</span>
                 </div>
-                <div>
-                  <Label className="text-sm mb-2 block text-right" dir="rtl">توقيع الزبون</Label>
-                  <div className="border border-gray-300 rounded-lg h-32 bg-gray-50"></div>
+              </div>
+              <div>
+                <Label className="text-sm font-medium text-foreground mb-3 block text-right" dir="rtl">توقيع الزبون</Label>
+                <div className="border-2 border-dashed border-muted rounded-xl h-32 bg-muted/20 flex items-center justify-center">
+                  <span className="text-muted-foreground text-sm" dir="rtl">منطقة التوقيع</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Footer note */}
-          <div className="border-t pt-4">
-            <p className="text-xs text-gray-600 flex justify-between">
-              <span>Carte d'identité national est obligatoire pour les marocains</span>
-              <span dir="rtl">بطاقة الهوية الوطنية إلزامية للمغاربة المقيمين بالمغرب</span>
-            </p>
+          <div className="border-t pt-6">
+            <div className="bg-accent/30 p-4 rounded-lg">
+              <p className="text-sm text-muted-foreground flex justify-between">
+                <span>Carte d'identité national est obligatoire pour les marocains</span>
+                <span dir="rtl">بطاقة الهوية الوطنية إلزامية للمغاربة المقيمين بالمغرب</span>
+              </p>
+            </div>
           </div>
         </Card>
       </div>
